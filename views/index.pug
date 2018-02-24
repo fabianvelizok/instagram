@@ -1,0 +1,27 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no")
+    meta(http-equiv="X-UA-Compatible" content="ie=edge")
+    link(rel="stylesheet" href="public/css/main.css")
+    title Platzigram
+  body
+    h1 Index
+    footer.footer
+      .container
+        .row
+          .col.s12.l3.center-align
+            // Dropdown Trigger
+            a.dropdown-trigger.btn(href="#" data-target="dropdown1") Language
+            // Dropdown Structure
+            ul#dropdown1.dropdown-content
+              li
+                a(href="#!") English
+              li
+                a(href="#!") Spanish
+          // .col
+          .col.s12.l3.offset-l6.center-align 2018 Platzigram ®
+    // Compiled and minified JavaScript
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.4/js/materialize.min.js")
+    script(src="public/js/main.js")
