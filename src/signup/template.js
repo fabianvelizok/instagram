@@ -11,7 +11,8 @@ var template = yo`
             <h2>Register to see friends studying on Platzi</h2>
             <div class="section">
               <a href="" class="btn btn-fb hide-on-small-only">Sign in with Facebook</a>
-              <a href="" class="btn btn-fb hide-on-med-and-up">Sign in</a>
+              <a href="" class="btn btn-fb hide-on-med-and-up">Sign in <i class="fab fa-facebook"></i></a>
+              </a>
             </div>
             <div class="divider"></div>
             <div class="section">
