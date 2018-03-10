@@ -30,7 +30,7 @@ function compile(watch) {
 
 gulp.task('styles', function() {
   gulp
-    .src('index.scss')
+    .src('assets/index.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(rename('app.css'))
     .pipe(gulp.dest('public'));
