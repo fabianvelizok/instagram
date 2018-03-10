@@ -17,10 +17,6 @@ var template = yo`
             <div class="section">
               <div class="row">
                 <div class="input-field">
-                  <input type="text" name="name" id="name">
-                  <label for="name">Name</label>
-                </div>
-                <div class="input-field">
                   <input type="text" name="email" id="email">
                   <label for="email">Email</label>
                 </div>
@@ -29,7 +25,7 @@ var template = yo`
                   <label for="password">Password</label>
                 </div>
                 <div class="input-field">
-                  <button class="waves-effect waves-light btn" type="submit">Register</button>
+                  <button class="waves-effect waves-light btn" type="submit">Sign In</button>
                 </div>
               </div>
             </div>
@@ -39,8 +35,8 @@ var template = yo`
 
       <div class="row">
         <div class="sign-in-box">
-          Do you have an account?
-          <a href="/signin">Sign in</a>
+          Don't you have an account?
+          <a href="/signup">Sign Up</a>
         </div>
       </div><!--.row-->
     </div>
