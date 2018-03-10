@@ -1,21 +1,26 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
+var sourcemaps = require('gulp-sourcemaps');
+var buffer = require('vinyl-buffer');
 var rename = require('gulp-rename');
-var babelify = require('babelify');
+var babel = require('babelify');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var watchify = require('watchify');
 
 function compile(watch) {
-  var bundle = watchify(browserify("./src/index.js"));
+  var bundle = watchify(browserify('./src/index.js', { debug: true }).transform(babel));
 
   function rebundle() {
-    bundle
-      .transform("babelify", { presets: ["env"] })
-      .bundle()
-      .pipe(source("index.js"))
-      .pipe(rename("app.js"))
-      .pipe(gulp.dest("public"));
+    bundle.bundle()
+      .on('error', function(err) { 
+        console.error(err); this.emit('end'); 
+      })
+      .pipe(source('app.js'))
+      .pipe(buffer())
+      .pipe(sourcemaps.init({ loadMaps: true }))
+      .pipe(sourcemaps.write('./'))
+      .pipe(gulp.dest('./public'));
   }
 
   if (watch) {
