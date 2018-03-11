@@ -12,7 +12,9 @@ var el = yo`<nav class="header">
               <a href="/" class="brand-logo platzigram">Platzigram</a>
             </div>
             <div class="col s2 m6 push-s10 push-m10">
-              <a href="#" class="btn btn-large btn-flat dropdown-user-trigger" data-activates="dropdown-user">
+              <a href="#"
+                 class="btn btn-large btn-flat dropdown-user-trigger"
+                 data-target="dropdown-user">
                 <i class="fa fa-user" aria-hidden="true"></i>
               </a>
               <ul id="dropdown-user" class="dropdown-content">
@@ -24,7 +26,7 @@ var el = yo`<nav class="header">
       </div>
     </nav>`;
 
-module.exports = function header (ctx, next) {
+module.exports = function(ctx, next) {
   var container = document.getElementById('header-container')
   empty(container).appendChild(el);
   next();

@@ -1,5 +1,4 @@
 var yo = require('yo-yo');
-var translate = require('../translate');
 
 var landing = function (content) {
   return yo`
