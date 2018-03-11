@@ -19,6 +19,7 @@
   "author": "Fabián Veliz <velizfabianhoracio@gmail.com> (https://twitter.com/fabianvelizok)",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.18.0",
     "express": "^4.16.2",
     "intl": "^1.2.5",
     "intl-messageformat": "^2.2.0",
