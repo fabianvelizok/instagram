@@ -1,5 +1,6 @@
 var yo = require('yo-yo');
-var landing = require('../landing/template');
+var translate = require('../translate');
+var landing = require('../landing');
 
 var template = yo`
   <div>
@@ -8,24 +9,24 @@ var template = yo`
         <div class="sign-up-box">
           <h1 class="platzigram">Platzigram</h1>
           <form class="signup-form">
-            <h2>Register to see friends studying on Platzi</h2>
+            <h2>${translate.message('signup.subheading')}</h2>
             <div class="section">
-              <a href="" class="btn btn-fb hide-on-small-only">Sign in with Facebook</a>
-              <a href="" class="btn btn-fb hide-on-med-and-up">Sign in <i class="fab fa-facebook"></i></a>
+              <a href="" class="btn btn-fb hide-on-small-only">${translate.message('signup.facebook')}</a>
+              <a href="" class="btn btn-fb hide-on-med-and-up">${translate.message('signup.facebook')} <i class="fab fa-facebook"></i></a>
             </div>
             <div class="divider"></div>
             <div class="section">
               <div class="row">
                 <div class="input-field">
                   <input type="text" name="email" id="email">
-                  <label for="email">Email</label>
+                  <label for="email">${translate.message('email')}</label>
                 </div>
                 <div class="input-field">
                   <input type="password" name="password" id="password">
-                  <label for="password">Password</label>
+                  <label for="password">${translate.message('password')}</label>
                 </div>
                 <div class="input-field">
-                  <button class="waves-effect waves-light btn" type="submit">Sign In</button>
+                  <button class="waves-effect waves-light btn" type="submit">${translate.message('signin')}</button>
                 </div>
               </div>
             </div>
@@ -35,8 +36,8 @@ var template = yo`
 
       <div class="row">
         <div class="sign-in-box">
-          Don't you have an account?
-          <a href="/signup">Sign Up</a>
+          ${translate.message('signin.not-have-account')}
+          <a href="/signup">${translate.message('signup.cta')}</a>
         </div>
       </div><!--.row-->
     </div>

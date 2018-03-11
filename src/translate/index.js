@@ -20,7 +20,7 @@ messages.es = es;
 messages.en = en;
 
 // Language
-var locale = 'en';
+var locale = localStorage.getItem('locale') || en;
 
 var message = function (text, opts) {
   if (!opts) opts = {};

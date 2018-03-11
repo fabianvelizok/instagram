@@ -14,18 +14,31 @@ body, html {
 }
 
 body {
-  background-color: #fafafa;
+  background: #fafafa;
   color: $secondary-color;
-  font-family: Monserrat;
+  font-family: Montserrat;
 }
 
-.main-image {
-  display: inline-block;
-  max-width: 100%;
+.landing {
+  margin: 30px auto;
+}
 
-  h1 {
-    color: red;
-  }
+.iphone {
+  max-width: 100%;
+}
+
+.site-footer {
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.login-box,
+.signup-box {
+  background-color: white;
+  border: 1px solid #edeeee;
+  border-radius: 3px;
+  padding: 10px 0;
+  text-align: center;
 }
 
 .platzigram {
@@ -34,50 +47,79 @@ body {
   color: $secondary-color !important;
 }
 
+.signup-form {
+  width: 65%;
+  margin: 0 auto;
+}
+
+.signup-form h2 {
+  color: #a5a7aa;
+  font-size: 1.2em;
+}
+
+.signup-form .btn.btn-fb {
+  background-color: #4090db;
+  font-size: .8em;
+}
+
+.signup-form .btn.btn-fb:hover {
+  background-color: #2d6599;
+}
+
+.signup-form .btn.btn-signup {
+  background-color: $secondary-color;
+}
+
 .header {
-  background-color: #fff;
+  background-color: white;
   color: $secondary-color;
   box-shadow: none;
+  border-bottom: 1px solid #edeeee;
 }
 
 .timeline {
   padding: 30px 0;
 }
 
+$avatar-size: 48px;
+
 .avatar {
-  max-width: $avatar-size;
-  border-radius: $avatar-size;
-  margin-right: 12px;
+  width: $avatar-size;
+  height: $avatar-size;
+  border-radius: 50%;
   float: left;
+  margin-right: 12px;
 }
 
-.card-title, .card-content {
+.card .username {
+  color: $secondary-color;
+}
+
+.card small.time {
+  line-height: $avatar-size;
+}
+
+.card p {
+  padding: 20px 0;
+}
+
+.card .likes {
+  line-height: 30px;
+  margin-left: 12px;
+}
+
+.card i {
+  font-size: 30px;
+}
+
+.card .fa-heart-o {
+  color: $secondary-color;
+}
+
+.card .fa-heart {
+  color: #f44336;
+}
+
+.card-content, .card-title {
   overflow: hidden;
-}
-
-.card {
-  .username {
-    color: $secondary-color;
-  }
-
-  .time {
-    line-height: $avatar-size;
-  }
-
-  p {
-    padding: 20px;
-  }
-
-  .likes {
-    line-height: 30px;
-    margin-left: 12px;
-  }
-
-  i {
-    font-size: 30px;
-  }
-
-  .icon {
-    color: $secondary-color;
-  }
 }

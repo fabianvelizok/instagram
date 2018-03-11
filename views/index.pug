@@ -5,6 +5,7 @@ html(lang="en")
     meta(name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no")
     meta(http-equiv="X-UA-Compatible" content="ie=edge")
 
+    link(href='https://fonts.googleapis.com/css?family=Montserrat|Oleo+Script' rel='stylesheet' type='text/css')
     link(rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png")
     link(rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png")
     link(rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png")
@@ -27,20 +28,9 @@ html(lang="en")
     link(rel="stylesheet" type="text/css" href="app.css")
     title=title
   body
+    section#header-container
     main#main-container
       h1 Loading...
 
-    footer.footer
-      .container
-        .row
-          .col.s12.l3.center-align
-            a.dropdown-trigger.btn(href="#" data-target="dropdown1") Language
-            ul#dropdown1.dropdown-content
-              li
-                a(href="#!") English
-              li
-                a(href="#!") Spanish
-          .col.s12.l3.offset-l6.center-align 2018 Platzigram ®
-    
     script(src="scripts/materialize-css/dist/js/materialize.min.js")
     script(src="app.js")
