@@ -14,9 +14,9 @@ page('/', function (ctx, next) {
         avatar: 'https://static.platzi.com/media/avatars/fabian.h.veliz_99768843-1603-4154-9164-f5b33ae29916.jpg'
       },
       url: 'http://next.materializecss.com/images/sample-1.jpg',
-      likes: 1024,
+      likes: 0,
       liked: false,
-      createdAt: timeAgo('11-10-2017')
+      createdAt: new Date('11-10-2017')
     },
     {
       user: {
@@ -24,9 +24,9 @@ page('/', function (ctx, next) {
         avatar: 'https://static.platzi.com/media/avatars/fabian.h.veliz_99768843-1603-4154-9164-f5b33ae29916.jpg'
       },
       url: 'http://next.materializecss.com/images/office.jpg',
-      likes: 25,
+      likes: 1,
       liked: true,
-      createdAt: timeAgo()
+      createdAt: new Date()
     }
   ];
 

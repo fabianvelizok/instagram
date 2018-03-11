@@ -21,6 +21,7 @@
   "dependencies": {
     "express": "^4.16.2",
     "intl": "^1.2.5",
+    "intl-messageformat": "^2.2.0",
     "intl-relativeformat": "^2.1.0",
     "materialize-css": "^1.0.0-alpha.4",
     "page": "^1.8.3",

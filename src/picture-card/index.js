@@ -1,4 +1,5 @@
 var yo = require('yo-yo');
+var translate = require('../translate');
 
 var defaultImage = 'http://www.childwomenmin.gov.lk/themes/childwomenmin/assets/images/default-image.jpg';
 
@@ -16,11 +17,11 @@ var template = function (picture) {
             <img src="${pic.user.avatar || defaultImage}" class="avatar">
             <span class="card-title username">${pic.user.username}</span>
           </a>
-          <small class="right time">${pic.createdAt}</small>
+          <small class="right time">${translate.date(pic.createdAt)}</small>
           <div>
             <a class="left" href="#" onclick="${like.bind(null, !pic.liked)}">
               <i class="icon ${pic.liked ? 'fas fa-heart' : 'far fa-heart'}"></i>
-              <span class="likes">${pic.likes} likes</span>
+              <span class="likes">${translate.message('likes', {likes: pic.likes})} likes</span>
             </a>
           </div>
         </div>
