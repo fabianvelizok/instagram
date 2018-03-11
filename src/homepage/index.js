@@ -13,7 +13,7 @@ page('/', function (ctx, next) {
       },
       url: 'http://next.materializecss.com/images/sample-1.jpg',
       likes: 1024,
-      liked: true,
+      liked: false,
       createdAt: 'A day ago'
     }
   ];

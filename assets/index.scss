@@ -55,23 +55,29 @@ body {
   overflow: hidden;
 }
 
-.card .time {
-  line-height: $avatar-size;
-}
+.card {
+  .username {
+    color: $secondary-color;
+  }
 
-.card p {
-  padding: 20px;
-}
+  .time {
+    line-height: $avatar-size;
+  }
 
-.card .likes {
-  line-height: 30px;
-  margin-left: 12px;
-}
+  p {
+    padding: 20px;
+  }
 
-.card i {
-  font-size: 30px;
-}
+  .likes {
+    line-height: 30px;
+    margin-left: 12px;
+  }
 
-.card .icon {
-  color: $secondary-color;
+  i {
+    font-size: 30px;
+  }
+
+  .icon {
+    color: $secondary-color;
+  }
 }
