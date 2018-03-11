@@ -2,6 +2,8 @@ var yo = require('yo-yo');
 var page = require('page');
 
 var empty = require('../helpers/empty');
+var timeAgo = require('../helpers/timeAgo');
+
 var main = document.getElementById('main-container');
 
 page('/', function (ctx, next) {
@@ -14,7 +16,17 @@ page('/', function (ctx, next) {
       url: 'http://next.materializecss.com/images/sample-1.jpg',
       likes: 1024,
       liked: false,
-      createdAt: 'A day ago'
+      createdAt: timeAgo('11-10-2017')
+    },
+    {
+      user: {
+        username: 'elloco',
+        avatar: 'https://static.platzi.com/media/avatars/fabian.h.veliz_99768843-1603-4154-9164-f5b33ae29916.jpg'
+      },
+      url: 'http://next.materializecss.com/images/office.jpg',
+      likes: 25,
+      liked: true,
+      createdAt: timeAgo()
     }
   ];
 
