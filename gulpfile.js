@@ -9,12 +9,20 @@ var source = require('vinyl-source-stream');
 var watchify = require('watchify');
 
 function compile(watch) {
-  var bundle = watchify(browserify('./src/index.js', { debug: true }).transform(babel));
+  var bundle = watchify(
+    browserify('./src/index.js', { debug: true }
+  ).transform(babel, {
+    presets: ["babel-preset-env"],
+    plugins: [
+      'syntax-async-functions',
+      'transform-regenerator'
+    ]
+  }));
 
   function rebundle() {
     bundle.bundle()
-      .on('error', function(err) { 
-        console.error(err); this.emit('end'); 
+      .on('error', function(err) {
+        console.error(err); this.emit('end');
       })
       .pipe(source('app.js'))
       .pipe(buffer())

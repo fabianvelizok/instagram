@@ -1,6 +1,6 @@
 var yo = require('yo-yo');
 var page = require('page');
-var request = require('superagent');
+var superagent = require('superagent');
 var axios = require('axios');
 
 var empty = require('../helpers/empty');
@@ -10,8 +10,8 @@ var header = require('../header');
 
 var main = document.getElementById('main-container');
 
-var loadPictures = function (ctx, next) {
-  request
+var loadPicturesSuperagent = function (ctx, next) {
+  superagent
     .get('/api/pictures')
     .end(function (err, res) {
       if (err) return console.error(err);
@@ -20,7 +20,7 @@ var loadPictures = function (ctx, next) {
     });
 };
 
-var loadPicturesUsingPromises = function (ctx, next) {
+var loadPicturesAxios = function (ctx, next) {
   axios.get('/api/pictures')
     .then(function (pictures) {
       ctx.pictures = pictures.data;
@@ -33,7 +33,33 @@ var loadPicturesUsingPromises = function (ctx, next) {
     });
 };
 
-page('/', header, loadPicturesUsingPromises, function (ctx, next) {
+var loadPicturesFetch = function (ctx, next) {
+  fetch('/api/pictures')
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (pictures) {
+      ctx.pictures = pictures.data;
+    })
+    .catch(function (err) {
+      console.error(err);
+    })
+    .finally(function () {
+      next();
+    });
+};
+
+async function asyncLoad (ctx, next) {
+  try {
+    var pictures = await fetch('/api/pictures').then(response=> response.json());
+    ctx.pictures = pictures;
+    next();
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+page('/', header, asyncLoad, function (ctx, next) {
   var template = require('./template');
   empty(main).appendChild(template(ctx.pictures));
 });
