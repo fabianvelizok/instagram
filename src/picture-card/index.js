@@ -21,7 +21,7 @@ var template = function (picture) {
           <div>
             <a class="left" href="#" onclick="${like.bind(null, !pic.liked)}">
               <i class="icon ${pic.liked ? 'fas fa-heart' : 'far fa-heart'}"></i>
-              <span class="likes">${translate.message('likes', {likes: pic.likes})} likes</span>
+              <span class="likes">${translate.message('likes', {likes: pic.likes})}</span>
             </a>
           </div>
         </div>

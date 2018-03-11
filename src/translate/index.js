@@ -6,7 +6,7 @@ if (!window.Intl) {
 }
 
 window.IntlRelativeFormat = require('intl-relativeformat');
-var IntlMessageFormat = require('IntlRelativeFormat');
+var IntlMessageFormat = require('intl-messageformat');
 
 require('intl-relativeformat/dist/locale-data/en.js');
 require('intl-relativeformat/dist/locale-data/es.js');
@@ -19,10 +19,12 @@ var messages = {};
 messages.es = es;
 messages.en = en;
 
+// Language
 var locale = 'en';
 
-var message = function (message, opts) {
-  var mf = new IntlMessageFormat(message, locale);
+var message = function (text, opts) {
+  if (!opts) opts = {};
+  var mf = new IntlMessageFormat(messages[locale][text], locale);
   return mf.format(opts);
 };
 
