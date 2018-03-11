@@ -7,12 +7,14 @@ var main = document.getElementById('main-container');
 page('/', function (ctx, next) {
   var pictures = [
     {
-      image: 'http://next.materializecss.com/images/office.jpg',
-      title: 'Pic 1'
-    },
-    {
-      image: 'http://next.materializecss.com/images/sample-1.jpg',
-      title: 'Pic 2'
+      user: {
+        username: 'fabianvelizok',
+        avatar: 'https://static.platzi.com/media/avatars/fabian.h.veliz_99768843-1603-4154-9164-f5b33ae29916.jpg'
+      },
+      url: 'http://next.materializecss.com/images/sample-1.jpg',
+      likes: 1024,
+      liked: true,
+      createdAt: 'A day ago'
     }
   ];
 

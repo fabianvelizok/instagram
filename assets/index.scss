@@ -2,6 +2,7 @@
 @import 'node_modules/materialize-css/sass/materialize.scss';
 
 $secondary-color: #125688;
+$avatar-size: 45px;
 
 * {
   box-sizing: border-box
@@ -9,7 +10,7 @@ $secondary-color: #125688;
 
 body, html {
   margin: 0;
-  padding: 0; 
+  padding: 0;
 }
 
 body {
@@ -20,7 +21,7 @@ body {
 
 .main-image {
   display: inline-block;
-  max-width: 100%;  
+  max-width: 100%;
 
   h1 {
     color: red;
@@ -41,4 +42,36 @@ body {
 
 .timeline {
   padding: 30px 0;
+}
+
+.avatar {
+  max-width: $avatar-size;
+  border-radius: $avatar-size;
+  margin-right: 12px;
+  float: left;
+}
+
+.card-title, .card-content {
+  overflow: hidden;
+}
+
+.card .time {
+  line-height: $avatar-size;
+}
+
+.card p {
+  padding: 20px;
+}
+
+.card .likes {
+  line-height: 30px;
+  margin-left: 12px;
+}
+
+.card i {
+  font-size: 30px;
+}
+
+.card .icon {
+  color: $secondary-color;
 }
