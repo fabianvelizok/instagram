@@ -1,4 +1,6 @@
 var yo = require('yo-yo');
+var axios = require('axios');
+
 var layout = require('../layout');
 var pictureCard = require('../picture-card');
 var translate = require('../translate');
@@ -10,7 +12,8 @@ var template = function (pictures) {
         <div class="col s12 m10 offset-m1 l8 offset-l2 center-align">
           <form enctype="multipart/form-data"
                 id="form-upload"
-                class="form-upload">
+                class="form-upload"
+                onsubmit="${onSubmit}">
             <div id="file-name" class="file-upload btn btn-flat cyan">
               <i class="fas fa-camera"></i>
               <span>${translate.message('upload-picture')}</span>
@@ -29,7 +32,7 @@ var template = function (pictures) {
             <button id="btn-cancel"
                     type="button"
                     class="btn btn-flat red hide"
-                    onclick="${cancel}"
+                    onclick="${reset}"
             >
               ${translate.message('cancel')}
             </button>
@@ -48,13 +51,32 @@ var template = function (pictures) {
   return layout(home);
 };
 
+
+var form = document.getElementById('form-upload');
+
 function onChange() {
   toggleBtns();
 }
 
-function cancel(event) {
+function reset () {
   toggleBtns();
   document.getElementById('form-upload').reset();
+}
+
+function onSubmit(event) {
+  event.preventDefault();
+  var formData = new FormData(this);
+
+  axios.post('/api/pictures', formData)
+  .then(function (message) {
+    console.log(message.data);
+  })
+  .catch(function (err) {
+    console.error(err);
+  })
+  .finally(function () {
+    reset();
+  });
 }
 
 function toggleBtns() {
