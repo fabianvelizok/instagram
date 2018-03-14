@@ -4,6 +4,7 @@ var superagent = require('superagent');
 var axios = require('axios');
 
 var empty = require('../helpers/empty');
+var spinner = require('../helpers/spinner');
 var header = require('../header');
 
 var main = document.getElementById('main-container');
@@ -48,11 +49,15 @@ var loadPicturesFetch = function (ctx, next) {
 };
 
 async function asyncLoad (ctx, next) {
+  spinner.show();
+
   try {
     var pictures = await fetch('/api/pictures').then(response=> response.json());
     ctx.pictures = pictures;
+    spinner.hide();
     next();
   } catch (err) {
+    spinner.hide();
     console.error(err);
   }
 }
