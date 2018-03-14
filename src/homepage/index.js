@@ -4,8 +4,6 @@ var superagent = require('superagent');
 var axios = require('axios');
 
 var empty = require('../helpers/empty');
-var timeAgo = require('../helpers/timeAgo');
-
 var header = require('../header');
 
 var main = document.getElementById('main-container');

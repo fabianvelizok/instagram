@@ -4,8 +4,8 @@ var dropdown = require('../helpers/dropdown');
 dropdown('.dropdown-language-trigger');
 
 var setLang = function (language) {
-  if (localStorage.getItem('locale') === language) return;
-  localStorage.setItem('locale', language);
+  if (localStorage.getItem('lang') === language) return;
+  localStorage.setItem('lang', language);
   location.reload();
 };
 

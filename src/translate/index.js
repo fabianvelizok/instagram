@@ -20,16 +20,16 @@ messages.es = es;
 messages.en = en;
 
 // Language
-var locale = localStorage.getItem('locale') || en;
+var lang = localStorage.getItem('lang') || 'en';
 
 var message = function (text, opts) {
   if (!opts) opts = {};
-  var mf = new IntlMessageFormat(messages[locale][text], locale);
+  var mf = new IntlMessageFormat(messages[lang][text], lang);
   return mf.format(opts);
 };
 
 var date = function (date) {
-  var rf = new IntlRelativeFormat(locale);
+  var rf = new IntlRelativeFormat(lang);
   return rf.format(date);
 };
 
