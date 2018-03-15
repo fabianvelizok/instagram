@@ -68,6 +68,51 @@ app.post('/api/pictures', function (req, res, next) {
   });
 });
 
+app.get('/users/:username', function (req, res) {
+  res.render('index', { title: 'Profile' });
+});
+
+app.get('/api/users/:username', function (req, res, next) {
+  var user = {
+    username: 'fabianvelizok',
+    email: 'velizfabianhoracio@gmail.com',
+    avatar: 'https://static.platzi.com/media/avatars/fabian.h.veliz_99768843-1603-4154-9164-f5b33ae29916.jpg',
+    pictures: [
+      {
+        url: 'http://next.materializecss.com/images/sample-1.jpg',
+        likes: 2,
+        liked: true,
+        createdAt: new Date('11-10-2017').getTime()
+      },
+      {
+        url: 'http://next.materializecss.com/images/office.jpg',
+        likes: 0,
+        liked: false,
+        createdAt: new Date().getTime()
+      },
+      {
+        url: 'https://image.freepik.com/free-psd/abstract-background-design_1297-73.jpg',
+        likes: 366,
+        liked: true,
+        createdAt: new Date().getTime()
+      },
+      {
+        url: 'http://next.materializecss.com/images/sample-1.jpg',
+        likes: 2,
+        liked: true,
+        createdAt: new Date('11-10-2017').getTime()
+      },
+      {
+        url: 'http://next.materializecss.com/images/office.jpg',
+        likes: 0,
+        liked: false,
+        createdAt: new Date().getTime()
+      }
+    ]
+  }
+  res.send(user);
+});
+
 app.listen(3000, function (err) {
   if (err) return console.err(err);
 

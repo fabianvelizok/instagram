@@ -13,7 +13,7 @@ var template = function (picture) {
           <img class="activator" src="${pic.url || defaultImage}">
         </div>
         <div class="card-content">
-          <a href="/user/${pic.user.username}" class="card-title">
+          <a href="/users/${pic.user.username}" class="card-title">
             <img src="${pic.user.avatar || defaultImage}" class="avatar">
             <span class="card-title username">${pic.user.username}</span>
           </a>

@@ -52,7 +52,7 @@ async function asyncLoad (ctx, next) {
   spinner.show();
 
   try {
-    var pictures = await fetch('/api/pictures').then(response=> response.json());
+    var pictures = await fetch('/api/pictures').then(response => response.json());
     ctx.pictures = pictures;
     spinner.hide();
     next();
