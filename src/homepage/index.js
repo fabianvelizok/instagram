@@ -9,6 +9,8 @@ var header = require('../header');
 
 var main = document.getElementById('main-container');
 
+
+
 var loadPicturesSuperagent = function (ctx, next) {
   superagent
     .get('/api/pictures')
