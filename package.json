@@ -5,7 +5,10 @@
   "main": "server.js",
   "scripts": {
     "build": "gulp",
-    "start": "gulp watch & node server.js"
+    "watch:js": "gulp watch:js",
+    "watch:css": "gulp watch:css",
+    "server": "node server.js",
+    "start": "run-p watch:css watch:js server"
   },
   "repository": {
     "type": "git",
@@ -45,6 +48,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.6.4",
+    "npm-run-all": "^4.1.2",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0",
     "watchify": "^3.10.0"

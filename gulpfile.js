@@ -33,7 +33,7 @@ function compile(watch) {
 
   if (watch) {
     bundle.on('update', function () {
-      console.log('Updating...');
+      console.log('Updating js...');
       rebundle();
     });
   }
@@ -44,7 +44,9 @@ function compile(watch) {
 gulp.task('styles', function() {
   gulp
     .src('assets/index.scss')
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sass.sync()
+      .on('error', sass.logError))
+      .on('end', function () { console.log('Updating css...'); })
     .pipe(rename('app.css'))
     .pipe(gulp.dest('public'));
 });
@@ -59,8 +61,12 @@ gulp.task('build', function() {
   return compile();
 });
 
-gulp.task('watch', function() {
+gulp.task('watch:js', function() {
   return compile(true);
+});
+
+gulp.task('watch:css', function () {
+  gulp.watch('assets/*.scss', ['styles']);
 });
 
 gulp.task('default', ['styles', 'assets', 'build']);
