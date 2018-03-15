@@ -8,18 +8,24 @@ var Webcam = require('webcamjs');
 
 var modal = require('../helpers/modal');
 
-function ready() {
-  Webcam.attach('#camera-input');
+function onOpenStart() {
+  setTimeout(() => {
+    Webcam.set({
+      width: 400,
+      height: 400
+    });
+    Webcam.attach('#camera-input');
+  }, 1000);
 }
 
-function complete() {
+function onCloseEnd() {
   Webcam.reset();
 }
 
 setTimeout(() => {
   modal('.modal', {
-    ready,
-    complete
+    onOpenStart,
+    onCloseEnd
   });
 }, 1000);
 
@@ -27,9 +33,9 @@ var template = function (pictures) {
   var home = yo`
     <div>
       <div class="container timeline">
-        <div id="modalpicture" class="modal">
-          <div class="modal-content">
-            <div class="camera-picture" id="camera-input"></div>
+        <div id="modalpicture" class="modal modal-picture">
+          <div class="modal-content center-align">
+            <div class="camera-input" id="camera-input"></div>
           </div>
           <div class="modal-footer">
             <div class="waves-effect waves-light btn" id="shoot">
